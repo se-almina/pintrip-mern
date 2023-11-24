@@ -25,7 +25,9 @@ const tripSchema = new Schema(
       required: true,
     },
     image: {
-      type: Buffer, // Store the image data as a Buffer directly
+      data: Buffer,
+      contentType: String,
+      name: String,
     },
   },
   { timestamps: true }

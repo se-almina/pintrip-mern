@@ -3,16 +3,8 @@ const { getTrips, getTrip, createTrip, deleteTrip, updateTrip } = require('../co
 const requireAuth = require('../middleware/requireAuth');
 const multer = require('multer');
 
-const Storage = multer.diskStorage({
-  destination: '../frontend/src/uploads',
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({
-  storage: Storage,
-}).single('image');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage }).single('image');
 
 const router = express.Router();
 

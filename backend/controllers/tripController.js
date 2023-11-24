@@ -2,15 +2,9 @@ const Trip = require('../models/tripModel');
 const mongoose = require('mongoose');
 const multer = require('multer');
 
-const Storage = multer.diskStorage({
-  destination: '../frontend/src/uploads',
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-const upload = multer({
-  storage: Storage,
-}).single('image');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage }).single('image');
+
 // get all trips
 const getTrips = async (req, res) => {
   try {
@@ -74,11 +68,14 @@ const createTrip = async (req, res) => {
   }
 
   try {
-    console.log('Received file:', req.file);
+    // Check if req.file exists before accessing buffer
     const image = req.file ? req.file.buffer : null;
+
     console.log('Image data:', image);
 
     const trip = await Trip.create({ title, location, food, music, tips, image });
+
+    // Convert image to base64 if it exists
     const tripWithBase64Image = {
       ...trip.toObject(),
       image: image ? image.toString('base64') : null,
