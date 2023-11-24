@@ -1,0 +1,156 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1434a4;
+  --error: #e7195a;
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: var(--font-family);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  background: #fff;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #333;
+  text-decoration: none;
+}
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+.trip-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+.trip-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  color: #000080;
+}
+.trip-details p {
+  margin: 0;
+  font-size: 1em;
+  color: #555;
+}
+.trip-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+/* new trip form */
+label,
+input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: 'Poppins';
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* navbar */
+.container {
+  background-color: #cee5ed;
+}
+.main-title {
+  color: #000080;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 10px;
+}
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: 'Poppins';
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+.rd-img {
+  width: 50%;
+}
+
+.rd-img img {
+  width: 100%;
+  height: 100%;
+}
+
+/* auth forms */
+form.signup,
+form.login {
+  background-image: url('uploads/bg.png');
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  font-weight: 600;
+  border-radius: 4px;
+}
