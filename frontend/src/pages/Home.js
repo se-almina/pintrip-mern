@@ -21,7 +21,19 @@ const Home = () => {
         const json = await response.json();
 
         if (response.ok) {
-          dispatch({ type: 'SET_TRIPS', payload: json });
+          //dispatch({ type: 'SET_TRIPS', payload: json });
+          // Update image data handling for each trip
+          const tripsWithBase64Image = json.map((trip) => ({
+            ...trip,
+            image: trip.image
+              ? `data:${trip.image.contentType};base64,${new Uint8Array(trip.image.data).reduce(
+                  (data, byte) => data + String.fromCharCode(byte),
+                  ''
+                )}`
+              : null,
+          }));
+
+          dispatch({ type: 'SET_TRIPS', payload: tripsWithBase64Image });
         } else {
           setError(json.error || 'Error fetching trips');
         }

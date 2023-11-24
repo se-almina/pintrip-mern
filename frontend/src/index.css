@@ -58,6 +58,11 @@ header a {
   font-size: 1.3em;
   color: #000080;
 }
+.trip-details img {
+  max-width: 100%;
+  height: auto;
+}
+
 .trip-details p {
   margin: 0;
   font-size: 1em;
