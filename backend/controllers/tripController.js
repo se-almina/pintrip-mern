@@ -73,8 +73,18 @@ const createTrip = async (req, res) => {
 
     console.log('Image data:', image);
 
-    const trip = await Trip.create({ title, location, food, music, tips, image });
-
+    const trip = await Trip.create({
+      title,
+      location,
+      food,
+      music,
+      tips,
+      image: {
+        data: image,
+        contentType: req.file.mimetype,
+        name: req.file.originalname,
+      },
+    });
     // Convert image to base64 if it exists
     const tripWithBase64Image = {
       ...trip.toObject(),
