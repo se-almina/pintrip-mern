@@ -52,7 +52,7 @@ const TripDetails = ({ trip }) => {
           <img src={`data:${trip.image.contentType || 'image/jpeg'};base64,${trip.image.name}`} alt='Trip Image' />
         </div>
       )} */}
-      {trip.image && <img src={`data:image/jpeg;base64,${trip.image}`} alt='Trip Image' />}
+      {trip.image && <img src={`data:${trip.image.contentType};base64,${trip.image.data}`} alt='Trip Image' />}
 
       <p>{formatDistanceToNow(new Date(trip.createdAt), { addSuffix: true })}</p>
       <span className='material-symbols-outlined' onClick={handleClick}>

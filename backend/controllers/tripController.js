@@ -88,8 +88,12 @@ const createTrip = async (req, res) => {
     // Convert image to base64 if it exists
     const tripWithBase64Image = {
       ...trip.toObject(),
-      image: image ? image.toString('base64') : null,
+      image: {
+        ...trip.image,
+        data: trip.image.data.toString('base64'),
+      },
     };
+
     res.status(200).json(tripWithBase64Image);
   } catch (error) {
     res.status(400).json({ error: error.message });
